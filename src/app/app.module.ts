@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-
+import { AgmCoreModule } from 'angular2-google-maps/core';
+import { MarkerdataService } from './markerdata.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -12,9 +13,12 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'your key'
+    })
   ],
-  providers: [],
+  providers: [MarkerdataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

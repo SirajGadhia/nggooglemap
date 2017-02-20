@@ -1,3 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+<div class="page-header">
+  <h1>Google Map In Angular </h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="map">
+        <sebm-google-map (mapClick)="onMapClicked($event)" [latitude]="lat" [longitude]="lng">
+          <sebm-google-map-marker 
+          *ngFor="let m of allMarkers"
+          (markerClick)="onClick(m)"
+          [latitude]="m.lat" 
+          [longitude]="m.lng" 
+          >
+              <sebm-google-map-info-window>
+                <strong>{{m.name}}</strong>
+                <br>
+                <a class="delete" (click)="onDelete(m)">Delete</a>
+              </sebm-google-map-info-window>
+          </sebm-google-map-marker>
+        </sebm-google-map>
+      </div>
+    </div>
+  </div>
+</div>
